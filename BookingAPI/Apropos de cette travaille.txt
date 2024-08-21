@@ -1,0 +1,53 @@
+The Booking API system is designed to handle hotel room bookings by providing functionalities for allocating rooms and calculating prices based on various factors. 
+The system is built using ASP.NET Core and employs a service-oriented architecture to separate concerns and improve maintainability. This report outlines the approach,
+ design decisions, and potential future extensions for the system.
+
+Approach and Design Decisions
+Architecture and Components
+
+Controllers: The BookingsController class manages HTTP requests and routes them to appropriate service methods. It exposes two endpoints: one for allocating rooms (/allocate) and another for calculating room prices (/calculate).
+Services: The BookingService class contains the core business logic for allocating rooms and calculating prices. This separation of concerns allows for better organization and easier testing.
+Models: Various models like BookingRequest, PricingRequest, PriceDetails, and AllocationResult represent the data structures used throughout the system. They facilitate data transfer between the controller and the service.
+Room Allocation
+
+Input Validation: The AllocateRooms method in the BookingsController validates input data to ensure it is not null or empty. This prevents processing invalid requests.
+Business Logic: The AllocateRooms method in the BookingService handles the core logic for room allocation, including fetching competitor prices and calculating adjusted prices. It assigns a unique ID to each booking and handles special requests.
+Price Calculation
+
+Base Pricing: The system uses predefined base prices for different room types. Seasonal and occupancy modifiers adjust these base prices based on external factors.
+Competitor Prices: The FetchCompetitorPrices method reads competitor prices from a CSV file and adjusts the room price based on these competitor prices, ensuring competitive pricing.
+Modifiers: The system incorporates seasonal and occupancy modifiers to adjust prices dynamically, reflecting market conditions and booking demand.
+Error Handling
+
+Exception Management: Both endpoints handle exceptions gracefully. Errors are logged, and appropriate HTTP status codes are returned to the client, providing clarity on the nature of the issue.
+CSV Handling
+
+Competitor Prices: The FetchCompetitorPrices method reads from a CSV file to fetch competitor pricing data. This allows the system to adjust prices based on market competition.
+Future Extensions
+Enhanced Error Handling and Logging
+
+Improved Logging: Integrate a more advanced logging framework, such as Serilog or NLog, to capture detailed logs and errors. This will aid in debugging and monitoring the system in production.
+Error Notifications: Implement a notification system to alert administrators in case of critical errors or system failures.
+User Authentication and Authorization
+
+Authentication: Add user authentication mechanisms to ensure that only authorized users can access certain functionalities. Implement OAuth2 or JWT for secure access.
+Role-Based Access: Introduce role-based access controls (RBAC) to manage permissions for different types of users, such as administrators and regular users.
+Database Integration
+
+Persistence: Replace the CSV file for storing competitor prices with a database for better scalability and performance. Implement an ORM like Entity Framework Core for data access.
+Booking Records: Introduce database support to persist booking records, user profiles, and other essential data.
+API Versioning and Documentation
+
+Versioning: Implement API versioning to support backward compatibility and gradual updates. This will help maintain existing clients while introducing new features.
+Documentation: Enhance API documentation using tools like Swagger or OpenAPI. This will provide developers with a comprehensive understanding of the API endpoints and their usage.
+User Interface
+
+Front-End Application: Develop a web-based front-end application to interact with the API. This could be a customer-facing booking interface or an admin dashboard for managing bookings and viewing analytics.
+Advanced Pricing Strategies
+
+Dynamic Pricing: Implement more sophisticated pricing strategies, such as dynamic pricing based on real-time demand and availability.
+Promotions and Discounts: Introduce features for managing promotions, discounts, and special offers to attract more customers.
+Testing and Quality Assurance
+
+Automated Testing: Develop unit tests and integration tests to ensure the reliability and correctness of the API. Use testing frameworks like xUnit or NUnit.
+Continuous Integration: Set up a CI/CD pipeline to automate testing, building, and deployment processes, ensuring smooth and reliable releases.
