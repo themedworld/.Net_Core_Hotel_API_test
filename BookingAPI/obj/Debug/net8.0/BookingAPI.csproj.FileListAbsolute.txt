@@ -32,3 +32,4 @@ C:\Users\XPS\Desktop\Nouveau dossier (7)\BookingAPI\obj\Debug\net8.0\BookingAPI.
 C:\Users\XPS\Desktop\Nouveau dossier (7)\BookingAPI\obj\Debug\net8.0\BookingAPI.genruntimeconfig.cache
 C:\Users\XPS\Desktop\Nouveau dossier (7)\BookingAPI\obj\Debug\net8.0\ref\BookingAPI.dll
 C:\Users\XPS\Desktop\Nouveau dossier (7)\BookingAPI\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\XPS\Desktop\Nouveau dossier (7)\BookingAPI\obj\Debug\net8.0\BookingAPI.sourcelink.json
